@@ -12,12 +12,3 @@ If you know Javascript well, then you must be know about asynchronization in jav
 
 > Asynchronization is a technique to do multiple tasks simultaneously.
 
-#### Example
-
-In real world, suppose you are cooking you food in the Kitchen. Then, your phone start ringing and you pick up the call. Now, you are doing both cooking and talking on the phone. You do both work simultaneously. This is called Asynchronization.
-
-Again taken the above example, you are cooking the food, your phone starts ringing. But donot pick up the phone. You first complete cooking then pick the phone. Means you first complete your first work then starts doing second work. This is called synchronization. 
-
-I hope that synchronization and asynchronization is now clear to you. 
-
-Now, I will give examples in programming paradigm.
