@@ -10,7 +10,7 @@ use futures::executor::block_on;
 
    
 //     let thread_two=thread::spawn(||{
-//         thread::sleep(Duration::from_secs(5));
+//         thread::sleep(Duration::from_secs(3));
 //         println!("thread two");
 //     });
 
@@ -19,15 +19,19 @@ use futures::executor::block_on;
 // }
 
 // fn main(){
-//     block_on(get_two_sites_async());
+//     get_two_sites();
 // }
 // async fn t1(){
-//     thread::sleep(Duration::from_secs(5));
+//     thread::sleep(Duration::from_secs(7));
 //     println!("thread one");
 // }
 
+// fn main(){
+//     block_on(get_two_sites_async());
+// }
+
 // async fn t2(){
-//     thread::sleep(Duration::from_secs(5));
+//     thread::sleep(Duration::from_secs(4));
 //     println!("thread two");
 // }
 
