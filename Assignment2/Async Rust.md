@@ -72,6 +72,13 @@ Example using await
 
 ![Example with await](carbon.png)
 
+```
+The output is:
+    Identifiers, function, array, tuples
+    learn and practice
+    I am making web application in Rust
+
+```
 The async function is responsible for creating Future. The block_on function blocks the current thread until future will completed, hence, making synchronous environment.
 
 
