@@ -1,5 +1,5 @@
 
-![Rust Asynchronous](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQnAiB8mW2fhhzBxevraWEmuo-hWce3mPuk6VzBNof1jB35tDCd&usqp=CAU)
+![Rust Asynchronous](rust-language-994x400.jpg)
 
 ## Do you know about Asynchronous Rust ?
 
