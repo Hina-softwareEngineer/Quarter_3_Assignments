@@ -35,3 +35,6 @@ Like , you are using Ms Word, Ms Excel and Terminals at a time. This is the exam
 
 When a user runs multiple sub-tasks of multiple-application, then this is called multi-threading. By using Multi-threading, we can inscrease the power of CPU by creating many threads in a process at a time. Multi-threading also provides the same resources and memory to processes as multi-tasking provides. In programming terms ,you can say it Asynchronous Programming.
 
+Example: 
+
+You are running Visual Studio Code Editor, When you start typing , IntelliSense starts working which help you in code completion, showing syntax errors, indentation and many more. These are all threads which are running parallel in this application, on various processors. This will optimize your time and memory.
