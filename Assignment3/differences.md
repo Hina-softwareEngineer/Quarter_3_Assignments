@@ -26,10 +26,7 @@ Example :
 
 Like , you are using Ms Word, Ms Excel and Terminals at a time. This is the example of Multi-Tasking.
 
-
-
-
-[IMAGE]
+![Multi-Tasking](multitasking.jpg)
 
 ## Multi-Threading
 
@@ -39,8 +36,8 @@ Example:
 
 You are running Visual Studio Code Editor, When you start typing , IntelliSense starts working which help you in code completion, showing syntax errors, indentation and many more. These are all threads which are running parallel in this application, on various processors. This will optimize your time and memory.
 
+![Multi-threading](multi-thread.jpg)
 
-[IMAGE]
 
 ## Differences between Multi-Taskinga and Multi-Threading
 
