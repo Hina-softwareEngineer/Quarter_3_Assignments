@@ -33,7 +33,7 @@ Like , you are using Ms Word, Ms Excel and Terminals at a time. This is the exam
 
 ## Multi-Threading
 
-When a user runs multiple sub-tasks of multiple-application, then this is called multi-threading. By using Multi-threading, we can inscrease the power of CPU by creating many threads in a process at a time. Multi-threading also provides the same resources and memory to processes as multi-tasking provides. In programming terms ,you can say it Asynchronous Programming.
+When a user runs multiple sub-tasks of multiple-application, then this is called multi-threading. By using Multi-threading, we can inscrease the power of CPU by creating many threads in a process at a time. Multi-threading also provides the same resources and memory to processes as multi-tasking provides. While synchronous call runs on one thread, the other tasks of program which do not depend on that call run on different threads.In programming terms ,you can say it Asynchronous Programming.
 
 Example: 
 
