@@ -39,7 +39,7 @@ You are running Visual Studio Code Editor, When you start typing , IntelliSense 
 ![Multi-threading](multi-thread.jpg)
 
 
-## Differences between Multi-Taskinga and Multi-Threading
+## Differences between Multi-Tasking and Multi-Threading
 
 | Multi-Tasking                                                        	| Multi-Threading                                                                                            	|
 |---------------------------------------------------------------------	|-------------------------------------------------------------------------------------------------------------	|
