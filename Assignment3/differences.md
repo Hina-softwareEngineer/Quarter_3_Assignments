@@ -1,6 +1,6 @@
 # Multi-Threading Vs Multi-Tasking (Async)
 
-Before, I will tell you about the differences between multi-tasking adn multi-threading, I will tell you about what is task and thread?
+Before, I will tell you about the differences between multi-tasking and multi-threading, I will tell you about what is task and thread?
 
 ## Task
 
@@ -18,7 +18,7 @@ Now, comes to multi-tasking and multi-threading.
 
 ## Multi-Tasking
 
-When a user or multiple users runs more than one application at a time, then it is termed as multi-tasking. Whehter you have single processor or multi-processors, multi-tasking is done on both.
+When a user or multiple users runs more than one application at a time, then it is termed as multi-tasking. Whether you have single processor or multi-processors, multi-tasking is done on both.
 
 Multi-tasking is done by quickly switching between tasks, so that user can use each program together. This makes the performance of user better.
 
@@ -30,11 +30,11 @@ Like , you are using Ms Word, Ms Excel and Terminals at a time. This is the exam
 
 ## Multi-Threading
 
-When a user runs multiple sub-tasks of multiple-application, then this is called multi-threading. By using Multi-threading, we can inscrease the power of CPU by creating many threads in a process at a time. Multi-threading also provides the same resources and memory to processes as multi-tasking provides. While synchronous call runs on one thread, the other tasks of program which do not depend on that call run on different threads.In programming terms ,you can say it Asynchronous Programming.
+When a user runs multiple sub-tasks of multiple-application, then this is called multi-threading. By using Multi-threading, we can increase the power of CPU by creating many threads in a process at a time. Multi-threading also provides the same resources and memory to processes as multi-tasking provides. While synchronous call runs on one thread, the other tasks of program which do not depend on that call run on different threads .In programming terms ,you can say it Asynchronous Programming.
 
 Example: 
 
-You are running Visual Studio Code Editor, When you start typing , IntelliSense starts working which help you in code completion, showing syntax errors, indentation and many more. These are all threads which are running parallel in this application, on various processors. This will optimize your time and memory.
+You are running Visual Studio Code Editor, When you start typing , IntelliSense starts working which helps you in code completion, showing syntax errors, indentation and many more. These are all threads which are running parallel in this application, on various processors. This will optimize your time and memory.
 
 ![Multi-threading](multi-thread.jpg)
 
