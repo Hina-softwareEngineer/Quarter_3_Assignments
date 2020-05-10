@@ -1,0 +1,13 @@
+[package]
+name = "class-07"
+version = "0.1.0"
+authors = ["HINA KHADIM <hinakhadim2002@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+# reqwest = "0.9.22"
+async-std = "1.5.0"
+reqwest = { version ="0.10", features = ["blocking", "json"] }
+tokio = { version = "0.2" , features = ["full"] }
