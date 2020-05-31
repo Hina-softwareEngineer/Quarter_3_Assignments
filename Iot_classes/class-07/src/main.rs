@@ -106,6 +106,40 @@ fn hello() -> String {
     result
 }
 
+
+use rocket::request::Form;
+
+
+
+#[derive(FromForm)]
+pub struct Todo {
+    description: String
+}
+
+#[post("/", data = "<todo_form>")]
+fn new(todo_form: Form<Todo>) -> Flash<Redirect> {
+    let todo = todo_form.into_inner();
+    if todo.description.is_empty() {
+        Flash::error(Redirect::to("/"), "Description cannot be empty.")
+    } else  {
+        Flash::success(Redirect::to("/"), "Todo successfully added.")
+    } 
+}
+
+
+// use rocket::Data;
+
+// #[derive(FromForm)]
+// struct Task{
+//     description : String,
+//     completed: bool
+// }
+
+// #[post("/", data="<task>")]
+// fn new(task : Data)-> Result<String, std::io::Error> {
+//     task.stream_to_file("upload.txt").map(|n| n.to_string())
+// }
+
 fn main() {
     rocket::ignite().mount("/", rocket::routes![hello]).launch();
 }
