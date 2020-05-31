@@ -29,15 +29,83 @@
 //     })
 // }
 
+// use std::collections::HashMap;
 
+// #[tokio::main]
+// async fn main() -> Result<(), Box<dyn std::error::Error>> {
+//     let resp = reqwest::get("http://www.google.com")
+//         .await?
+//         .json::<HashMap<String, String>>()
+//         .await?;
+//     println!("{:#?}", resp);
+//     Ok(())
+// }
+
+// ---------------------Class 08------------
+#![feature(proc_macro_hygiene, decl_macro)]
+
+#[macro_use]
+extern crate rocket;
+
+extern crate reqwest;
 use std::collections::HashMap;
+use std::error::Error;
+use std::fs::File;
+use std::io::prelude::*;
 
-#[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let resp = reqwest::get("http://www.google.com")
-        .await?
-        .json::<HashMap<String, String>>()
-        .await?;
-    println!("{:#?}", resp);
-    Ok(())
+use std::path::Path;
+extern crate rustc_serialize;
+use rustc_serialize::json::Json;
+
+use std::io::Read;
+
+// openweathermapapi.com
+
+// Web_Attributes or Web_Methods Get, Post, Put, Delete
+// get request using rocket
+
+#[get("/")]
+// [rocket::get("/")]
+fn hello() -> String {
+    let path = Path::new("api.json");
+    let display = path.display();
+    println!("{:?} {:?}", path, display);
+
+    let mut file = match File::create(path) {
+        Ok(file) => file,
+        Err(_) => panic!("File could not create."),
+    };
+
+    match reqwest::get("http://jsonplaceholder.typicode.com/users") {
+        Ok(mut response) => match response.text() {
+            Ok(text) => match file.write_all(text.as_bytes()) {
+                Ok(_) => println!("Data write in file!"),
+                Err(_) => println!("The error is "),
+            },
+            Err(_) => println!("The response is not come from the server."),
+        },
+        Err(_) => println!("Server could not established the connecton."),
+    }
+
+    let mut file = match File::open(&path) {
+        Ok(file) => file,
+        Err(_) => panic!("{} file open Error: e.description()"),
+    };
+
+    let mut buffer = String::new();
+    file.read_to_string(&mut buffer).unwrap(); // unmanagable errors and we can't write text in it. (unwrap)
+
+    let json = Json::from_str(&buffer).unwrap();
+    let result = format!("The apis is {}", json[0].find_path(&["name"]).unwrap());
+
+    // let result = format!(
+    //     "The temperature of Karachi is {}",
+    //     json.find_path(&["name"]).unwrap()
+    // );
+
+    result
+}
+
+fn main() {
+    rocket::ignite().mount("/", rocket::routes![hello]).launch();
 }
