@@ -30,7 +30,7 @@
         $(document).ready(function () {
             $("#btnsend").click(function () {
                 $.ajax({
-                    url: "http://piaic-iot.site/add",
+                    url: "http://localhost:8000",
                     type: "POST",
                     data: JSON.stringify({
                         "id": 01,

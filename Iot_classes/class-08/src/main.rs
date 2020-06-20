@@ -1,23 +1,28 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 #[macro_use] extern crate rocket;
-#[macro_use] extern crate serde_derive;
-#[macro_use] extern crate rocket_contrib;
-#[macro_use] extern crate lazy_static;
-#[macro_use] extern crate rocket_cors;
+#[macro_use] extern crate serde_derive; // 
+#[macro_use] extern crate rocket_contrib; // maintain cors (attach)
+#[macro_use] extern crate lazy_static; // store coming data
 
-use std::sync::{Arc, Mutex};
-use std::collections::HashMap;
-use rocket_contrib::json::{Json, JsonValue};
-use rocket::http::Method; // Html Attributes
+
+#[macro_use] extern crate rocket_cors; // originable
+
+use std::sync::{Arc, Mutex}; // capture data coming through lazy statics
+use std::collections::HashMap; // store data in hashmap
+use rocket_contrib::json::{Json, JsonValue}; // store in json format
+use rocket::http::Method; // Html Attributes (Http methods get, post)
+
+// two different platforms
 use rocket_cors::{
-    AllowedHeaders, AllowedOrigins, Error,
-    Cors, CorsOptions,
+    AllowedHeaders,// wo kiya data le k aa raha hai kahan say aa rahi hai, 
+    AllowedOrigins, Error,
+    Cors, CorsOptions, // headers tells from where the request came
 };
 
-use rocket::State;
+use rocket::State; // tells about server condition
 
 type ID = usize;    // declaring globally
-#[derive(Debug, PartialEq, Eq, Deserialize)]
+#[derive(Debug, PartialEq, Eq, Deserialize)] // data in the form of bytes, deserialization
 struct Message{
     id : ID,
     contents: String
@@ -26,8 +31,8 @@ struct Message{
 
 fn make_cors()->Cors{
     let allowed_origins=AllowedOrigins::some_exact(&[
-        "https://best-ball.surge.sh/",
-        "http://192.168.0.150:3000"
+        "https://best-ball.surge.sh/",// allow request from these
+        "http://127.0.0.1:5500" // allow from local machine
     ]);
     CorsOptions{
         allowed_origins, 
@@ -37,10 +42,10 @@ fn make_cors()->Cors{
             "Accept",
             "Access-Control-Allow-Origin",
         ]),
-        allow_credentials: true,
+        allow_credentials: true, // without user name and password
         ..Default::default()
     }
-    .to_cors()
+    .to_cors() // convert to cross origin
     .expect("Error while building the Cros")
 }
 
@@ -69,6 +74,7 @@ fn hello()->JsonValue{
 }
 
 
+// Mutex for real time store data on server.
 type MessageMap = Mutex<HashMap<ID, String>>;
 
 
@@ -87,3 +93,15 @@ fn rocket()->rocket::Rocket{
 fn main(){
     rocket().launch();
 }
+
+
+
+// What to do => Structures bases and object Oriented
+
+// How to do => Functional Language ; SQL, Rust Closure
+
+
+// Stateless protocol
+
+
+// Stateful protocol
