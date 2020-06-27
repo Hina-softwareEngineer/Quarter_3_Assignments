@@ -39,9 +39,9 @@ fn main() {
         age: Some(age),
     };
     // insert(student);
-    // fetch();
+    fetch();
     // update(student);
-    delete(student);
+    // delete(student);
 }
 
 fn insert(student: Student) {
@@ -90,15 +90,12 @@ fn insert(student: Student) {
     println!("Added succesfully");
 }
 
-fn update(student:Student){
+fn update(student: Student) {
     let pool = Pool::new("mysql://root:root@localhost:3306/Rust_testing").unwrap();
     let mut conn = pool.get_conn().unwrap();
     // // Let's create payment table.
     // // Unwrap just to make sure no error happened.
-    let students = vec![
-       student
-    ];
-
+    let students = vec![student];
 
     conn.exec_batch(
         r"UPDATE student 
@@ -115,8 +112,8 @@ fn update(student:Student){
                 "age"=>&p.age
             }
         }),
-    ).unwrap();
-
+    )
+    .unwrap();
 
     println!("updated successfully");
 
@@ -141,10 +138,7 @@ fn update(student:Student){
     // }
 }
 
-
-
-
-fn delete(student: Student){
+fn delete(student: Student) {
     let pool = Pool::new("mysql://root:root@localhost:3306/Rust_testing").unwrap();
 
     println!("Pool : {:?}", pool);
@@ -154,10 +148,7 @@ fn delete(student: Student){
     let mut conn = pool.get_conn().unwrap();
     // // Let's create payment table.
     // // Unwrap just to make sure no error happened.
-    let students = vec![
-        student
-    ];
-
+    let students = vec![student];
 
     conn.exec_batch(
         r"delete from student 
@@ -170,7 +161,8 @@ fn delete(student: Student){
                 // "age"=>&p.age
             }
         }),
-    ).unwrap();
+    )
+    .unwrap();
     // Let's insert payments to the database
     // We will use into_iter() because we do not need to map Stmt to anything else.
     // Also we assume that no error happened in `prepare`.
@@ -190,8 +182,6 @@ fn delete(student: Student){
     // }
 }
 
-
-
 fn fetch() {
     let pool = Pool::new("mysql://root:root@localhost:3306/Rust_testing").unwrap();
     // Let's select payments from database
@@ -209,7 +199,7 @@ fn fetch() {
         )
         .unwrap();
 
-    println!("rsult : {:?}", selected_payments);
+    // println!("rsult : {:?}", json(selected_payments));
 
     // let selected_students: Vec<Student> =
     // pool.prep_exec("SELECT sid, name, email, age from tblstudent", ())
